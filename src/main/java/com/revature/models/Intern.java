@@ -1,21 +1,19 @@
 package com.revature.models;
+
 import java.util.Objects;
 
-public class Manager {
-
-    private String firstName;
-    private String lastName;
-    private int salary;
-//    private Home home;
-
-    public Manager() {
-    }
+public class Intern extends Employee{
 
     public Manager(String firstName, String lastName, int salary) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
 //        this.home = home;
+    }
+
+    public Intern(String firstName, String lastName, int salary) {
+        super(firstName, lastName, salary);
     }
 
     public String getFirstName() {
@@ -72,4 +70,4 @@ public class Manager {
                 ", home=" + home +
                 '}';
     }
-    }
+}

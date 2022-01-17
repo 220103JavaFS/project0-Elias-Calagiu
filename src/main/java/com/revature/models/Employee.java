@@ -1,17 +1,10 @@
 package com.revature.models;
+
 import java.util.Objects;
 
-public class Manager {
+public class Employee {
 
-    private String firstName;
-    private String lastName;
-    private int salary;
-//    private Home home;
-
-    public Manager() {
-    }
-
-    public Manager(String firstName, String lastName, int salary) {
+    public Employee(String firstName, String lastName, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
@@ -72,4 +65,4 @@ public class Manager {
                 ", home=" + home +
                 '}';
     }
-    }
+}
