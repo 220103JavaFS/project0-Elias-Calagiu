@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Intern extends Employee{
 
-    public Manager(String firstName, String lastName, int salary) {
+    public Intern(String firstName, String lastName, int salary) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
