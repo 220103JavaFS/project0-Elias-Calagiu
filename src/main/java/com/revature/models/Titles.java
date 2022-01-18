@@ -47,11 +47,11 @@ public Titles(){
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Titles titles = (Titles) o;
-        return id == titles.id && titleSalary == titles.titleSalary && Objects.equals(titleName, titles.titleName);
+        return getId() == titles.getId() && getTitleSalary() == titles.getTitleSalary() && Objects.equals(getTitleName(), titles.getTitleName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, titleName, titleSalary);
+        return Objects.hash(getId(), getTitleName(), getTitleSalary());
     }
 }
