@@ -16,4 +16,27 @@ public Titles(){
         this.titleSalary = titleSalary;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitleName() {
+        return titleName;
+    }
+
+    public void setTitleName(String titleName) {
+        this.titleName = titleName;
+    }
+
+    public int getTitleSalary() {
+        return titleSalary;
+    }
+
+    public void setTitleSalary(int titleSalary) {
+        this.titleSalary = titleSalary;
+    }
 }
