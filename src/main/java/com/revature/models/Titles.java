@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 public class Titles {
 
 private int id;
@@ -38,5 +40,18 @@ public Titles(){
 
     public void setTitleSalary(int titleSalary) {
         this.titleSalary = titleSalary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Titles titles = (Titles) o;
+        return id == titles.id && titleSalary == titles.titleSalary && Objects.equals(titleName, titles.titleName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, titleName, titleSalary);
     }
 }
