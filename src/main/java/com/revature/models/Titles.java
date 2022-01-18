@@ -54,4 +54,13 @@ public Titles(){
     public int hashCode() {
         return Objects.hash(getId(), getTitleName(), getTitleSalary());
     }
+
+    @Override
+    public String toString() {
+        return "Titles{" +
+                "id=" + id +
+                ", titleName='" + titleName + '\'' +
+                ", titleSalary=" + titleSalary +
+                '}';
+    }
 }
