@@ -6,7 +6,6 @@ import io.javalin.http.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.logging.Handler;
 
 public class EmployeeController implements Controller {
 
@@ -15,8 +14,12 @@ public class EmployeeController implements Controller {
     private EmployeeService employeeService = new EmployeeService();
 
     Handler getEmployees = (ctx) ->{
-        ctx.json(employeeService.findAllEmployees());
-        ctx.status(200);
+        if(ctx.req.getSession(false)!=null) {
+            ctx.json(employeeService.findAllEmployees());
+            ctx.status(200);
+        }else {
+            ctx.status(401);
+        }
     };
 
 //    Handler getEmployee = (ctx) -> {

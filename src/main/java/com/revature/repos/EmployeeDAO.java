@@ -12,4 +12,5 @@ public interface EmployeeDAO {
     boolean updateEmployee(Employee employee);
     boolean deleteEmployee(int id);
 
+    String verifyPassword(String userName);
 }
