@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import com.revature.services.EmployeeService;
 import io.javalin.Javalin;
+import io.javalin.http.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
