@@ -1,6 +1,7 @@
 package com.revature;
 import com.revature.controllers.Controller;
 import com.revature.controllers.EmployeeController;
+import com.revature.controllers.LoginController;
 import io.javalin.Javalin;
 
 public class App {
@@ -9,7 +10,7 @@ public class App {
 
     public static void main(String[] args) {
         app = Javalin.create(); //This represents the configuration of the framework at runtime.
-        configure(new EmployeeController());
+        configure(new EmployeeController(), new LoginController());
 //        app.get("/hello", ((ctx) -> {
 //            String url = ctx.url();
 //            System.out.println(url);
