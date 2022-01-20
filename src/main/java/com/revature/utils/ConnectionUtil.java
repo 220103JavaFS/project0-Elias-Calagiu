@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class ConnectionUtil {
 
     public static Connection getConnection() throws SQLException {
-        //For many framewords using JDBC it is necessary to "register" the driver
+        //For many frameworks using JDBC it is necessary to "register" the driver
         //package you are using. This is to make the framework aware of it.
         try {
             Class.forName(("org.postgresql.Driver"));
@@ -14,7 +14,7 @@ public class ConnectionUtil {
             e.printStackTrace();
         }
 
-        String url = "employee-management-system.cehcjnxrsoid.us-east-1.rds.amazonaws.com\n";
+        String url = "jdbc:postgresql://employee-management-system.cehcjnxrsoid.us-east-1.rds.amazonaws.com:5432/employeemanagementsystem";
         String username = "postgres"; //It is possible and preferable to hide this information in environment variables
         //System.out.println(System.getenv("SQLPassword"));
         String password = "password"; //Those are accessed by System.getenv("var-name");
