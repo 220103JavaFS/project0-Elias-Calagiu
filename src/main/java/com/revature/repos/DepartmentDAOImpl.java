@@ -11,7 +11,7 @@ public class DepartmentDAOImpl implements DepartmentDAO{
 
 
     @Override
-    public List<Department> findAllDepartment() {
+    public List<Department> findAllDepartments() {
         try (Connection connect = ConnectionUtil.getConnection()){
 
             String sql = "SELECT * FROM departments;";

@@ -15,12 +15,9 @@ public class EmployeeController implements Controller {
     private EmployeeService employeeService = new EmployeeService();
 
     Handler getEmployees = (ctx) ->{
-        if(ctx.req.getSession(false)!=null) {
             ctx.json(employeeService.findAllEmployees());
             ctx.status(200);
-        }else {
-            ctx.status(401);
-        }
+
     };
 
     Handler getEmployee = (ctx) -> {

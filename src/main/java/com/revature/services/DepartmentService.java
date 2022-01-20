@@ -10,7 +10,7 @@ public class DepartmentService {
     DepartmentDAO departmentDAO = new DepartmentDAOImpl();
 
     public List<Department> findALLDepartments(){
-        return departmentDAO.findAllDepartment(); //DAO method
+        return departmentDAO.findAllDepartments();
     }
 
     public Department findDepartment(int deptNum) {

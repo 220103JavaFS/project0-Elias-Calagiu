@@ -8,10 +8,10 @@ public class LoginService {
 
     EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 
-    public boolean login(String userName, String passWord){
+    public boolean login(String employeeUsername, String passWord){
         String hashedPW = BCrypt.hashpw(passWord, BCrypt.gensalt());
 
-        String dbPassword = employeeDAO.verifyPassword(userName);
+        String dbPassword = employeeDAO.verifyPassword(employeeUsername);
 
         return BCrypt.checkpw(dbPassword, hashedPW);
     }

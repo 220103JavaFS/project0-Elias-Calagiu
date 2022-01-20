@@ -1,6 +1,5 @@
 package com.revature.repos;
 
-import com.revature.models.Employee;
 import com.revature.models.Titles;
 
 import java.util.List;
