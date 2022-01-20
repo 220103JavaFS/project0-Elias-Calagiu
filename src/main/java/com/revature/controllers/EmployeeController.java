@@ -1,8 +1,5 @@
 package com.revature.controllers;
 
-import com.revature.Controller;
-import io.javalin.Javalin;
-
 public class EmployeeController implements Controller {
 
     private EmployeeService employeeService = new EmployeeService();
