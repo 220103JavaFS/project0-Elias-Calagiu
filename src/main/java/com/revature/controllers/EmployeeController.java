@@ -1,14 +1,22 @@
 package com.revature.controllers;
 
 import com.revature.services.EmployeeService;
+import io.javalin.Javalin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.logging.Handler;
 
 public class EmployeeController implements Controller {
 
     private static Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
     private EmployeeService employeeService = new EmployeeService();
+
+    Handler getEmployees = (ctx) ->{
+        ctx.json(employeeService.findAllEmployees());
+        ctx.status(200);
+    };
 
 //    Handler getEmployee = (ctx) -> {
 //        if(ctx.req.getSession(false)!=null){
@@ -23,8 +31,8 @@ public class EmployeeController implements Controller {
 //    };
 //
 //    @Override
-//    public void addRoutes(Javalin app) {
-//        app.get("/avenger/{id}", getAvenger);
-//    }
+    public void addRoutes(Javalin app) {
+        app.get("/employee", getEmployees);
+    }
 
 }
