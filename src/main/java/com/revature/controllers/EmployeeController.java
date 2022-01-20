@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.models.Employee;
 import com.revature.services.EmployeeService;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
@@ -22,21 +23,51 @@ public class EmployeeController implements Controller {
         }
     };
 
-//    Handler getEmployee = (ctx) -> {
-//        if(ctx.req.getSession(false)!=null){
-//            String idString = ctx.pathParam("id");
-//            int id = Integer.parseInt(idString);
-//            Employee employee = employeeService.callEmployee(id);
-//            ctx.json(avenger);
-//            ctx.status(200);
-//        }else {
-//            ctx.status(401);
-//        }
-//    };
+    Handler getEmployee = (ctx) -> {
+        if(ctx.req.getSession(false)!=null){
+            String lastName= ctx.pathParam("lastName");
+            Employee employee = employeeService.findbyLastName(lastName);
+            ctx.json(employee);
+            ctx.status(200);
+        }else {
+            ctx.status(401);
+        }
+    };
+
+    Handler updateEmployee = (ctx) -> {
+        if(ctx.req.getSession(false)!=null) {
+            Employee employee = ctx.bodyAsClass(Employee.class);
+            if(employeeService.updateEmployee(employee)){
+                ctx.status(200);
+            }else {
+                ctx.status(400);
+            }
+        } else {
+            ctx.status(401);
+        }
+
+    };
+
+    Handler newEmployee = (ctx)-> {
+        if (ctx.req.getSession(false) != null) {
+            Employee employee = ctx.bodyAsClass(Employee.class);
+            if (employeeService.addEmployee(employee)) {
+                ctx.status(200);
+            } else {
+                ctx.status(400);
+            }
+        } else {
+            ctx.status(401);
+        }
+    };
+
 //
-//    @Override
+    @Override
     public void addRoutes(Javalin app) {
         app.get("/employee", getEmployees);
+        app.get("/employee/{lastName}", getEmployee);
+        app.put("/employee", updateEmployee);
+        app.post("/employee", newEmployee);
     }
 
 }
