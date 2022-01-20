@@ -7,9 +7,8 @@ import java.util.List;
 
 public interface TitlesDAO {
 
-    List<Titles> findAll();
+    List<Titles> findAllTitles();
     Titles findbyTitle (int id);
-    boolean addEmployee(Employee employee);
-    boolean updateEmployee(Employee employee);
-    boolean deleteEmployee(int id);
+    boolean updateTitle(Titles titles);
+//    boolean
 }

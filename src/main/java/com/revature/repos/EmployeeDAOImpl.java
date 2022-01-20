@@ -10,7 +10,7 @@ import java.util.List;
 public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
-    public List<Employee> findAll() {
+    public List<Employee> findAllEmployees() {
         try(Connection conn = ConnectionUtil.getConnection()){
 
             String sql = "SELECT * FROM employees;";
@@ -23,18 +23,21 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
             while(result.next()){
                 Employee employee = new Employee();
-                employee.setId(result.getInt("employee_id"));
+                employee.setEmployeeId(result.getInt("employee_id"));
                 employee.setFirstName(result.getString("first_name"));
                 employee.setLastName(result.getString("last_name"));
                 list.add(employee);
             }
+
+            return list;
         }catch (SQLException e){
             e.printStackTrace();
         }
         return new ArrayList<Employee>();
     }
 
-        @Override
+
+    @Override
     public Employee findEmployee(int id) {
         return null;
     }
@@ -52,7 +55,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
             Employee employee = new Employee();
 
             if (result.next()) {
-                employee.setId(result.getInt("employee_id"));
+                employee.setEmployeeId(result.getInt("employee_id"));
                 employee.setFirstName(result.getString("first_name"));
                 employee.setLastName(result.getString("last_name"));
 //                list.add(employee);

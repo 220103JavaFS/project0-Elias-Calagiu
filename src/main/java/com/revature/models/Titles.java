@@ -8,14 +8,14 @@ private int id;
 private String titleName;
 private int titleSalary;
 
-public Titles(){
 
-}
 
     public Titles(int id, String titleName, int titleSalary) {
         this.id = id;
         this.titleName = titleName;
         this.titleSalary = titleSalary;
+    }
+    public Titles(){
     }
 
     public int getId() {

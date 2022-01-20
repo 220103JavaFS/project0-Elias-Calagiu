@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface EmployeeDAO {
 
-    List<Employee> findAll();
-    Employee findEmployee (int id);
+    List<Employee> findAllEmployees();
+    Employee findEmployee(int id);
 
     Employee findByLastName(String lastName);
 

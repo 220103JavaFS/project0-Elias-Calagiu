@@ -10,7 +10,7 @@ public class EmployeeService {
     private EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 
     public List<Employee> findAllEmployees() {
-        return employeeDAO.findAll();
+        return employeeDAO.findAllEmployees();
     }
 
     public Employee findbyLastName(String lastName){
