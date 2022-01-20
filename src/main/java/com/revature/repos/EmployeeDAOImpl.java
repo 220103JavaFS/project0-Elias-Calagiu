@@ -69,8 +69,26 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
     public boolean addEmployee(Employee employee) {
+        try(Connection conn = ConnectionUtil.getConnection()){
+            String sql = "INSERT into employees (first_name, last_name) VALUES(?,?);";
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            int count = 0;
+            statement.setString(++count, employee.getFirstName());
+            statement.setString(++count, employee.getLastName());
+
+            statement.execute();
+
+            return true;
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
         return false;
     }
+
 
     @Override
     public boolean updateEmployee(Employee employee) {

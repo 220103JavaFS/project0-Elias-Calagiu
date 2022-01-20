@@ -13,6 +13,17 @@ public class EmployeeService {
         return employeeDAO.findAll();
     }
 
+    public Employee findbyLastName(String lastName){
+        return employeeDAO.findByLastName(lastName);
+    }
+
+    public boolean updateEmployee (Employee employee){
+        return employeeDAO.updateEmployee(employee);
+    }
+
+    public boolean addEmployee (Employee employee){
+        return employeeDAO.addEmployee(employee);
+    }
 //    public Employee callEmployee(int id){
 //        return employeeDAO.findEmployee(id);
 //    }
